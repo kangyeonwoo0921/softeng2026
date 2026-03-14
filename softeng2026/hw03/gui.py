@@ -91,4 +91,4 @@ elif option == "2의 배수 합":
     
     with st.expander("2의 배수들 보기"):    
         st.text(nums) 
-        # st.write(str(nums)) # 방법 B: 문자열로 변환해서 출력
+        

@@ -79,7 +79,7 @@ def main():
         
       
         
-        #그래프 시각화
+        ######그래프 시각화
         
         fig, axs = plt.subplots(2, 2, figsize =(12, 8))
         
