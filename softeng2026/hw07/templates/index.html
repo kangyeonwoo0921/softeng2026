@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Website</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href='https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+
+    <header class="header">
+        <a href="{{ url_for('index') }}" class="logo">Kang<span>YeonWoo</span></a>
+
+        <i class="bx bx-menu" id="menu-icon"></i>
+
+        <nav class="navbar">
+            <a href="{{ url_for('index') }}" class="active">Home</a>
+            <a href="{{ url_for('about') }}">About Me</a>
+            <a href="{{ url_for('goals') }}">Goals</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <section class="home" id="home">
+        <div class="home-content">
+            <h1>Hi, It's <span>Yeon Woo</span></h1>
+            <h3 class="text-animation">I'm a <span></span></h3>
+            <p>안녕하세요. 전북대학교 스마트팜학과 강연우입니다.</p>
+            
+            <div class="social-icons">
+                <a href="https://www.linkedin.com/in/%EC%97%B0%EC%9A%B0-%EA%B0%95-021a98295/" target="_blank"><i class='bx bxl-linkedin'></i></a>
+                <a href="https://github.com/kangyeonwoo0921" target="_blank"><i class='bx bxl-github'></i></a>
+                <a href="https://www.instagram.com/yeonuu921/" target="_blank"><i class='bx bxl-instagram-alt'></i></a>
+                <a href="#"><i class='bx bxl-twitter'></i></a>    
+            </div>
+
+            <div class="btn-group">
+                <a href="{{ url_for('about') }}" class="btn">About Me</a>
+                <a href="{{ url_for('goals') }}" class="btn">My Goals</a>
+            </div>
+        </div>
+
+        <div class="home-img">
+            <img src="{{ url_for('static', filename='main.jpg') }}" alt="Profile Image">
+        </div>
+    </section>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
