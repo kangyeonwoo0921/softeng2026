@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+{%if posts| length > 0 %}
+
+{% for post in posts %}
+<div>
+    <img src="https://dummyimage.com/700x300" class="img-fluid mb-3" alt="Blog image">
+    <h2>제목: {{ post.title }}</h2>
+    <p>내용: {{ post.content }}</p>
+</div>
+{% endfor %}
+{% else %}
+    <p>게시글이 없습니다.</p>
+{% endif %}
+
+{% endblock %}
