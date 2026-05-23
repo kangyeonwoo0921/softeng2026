@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ post.title }} - Blog</title>
+    <link rel="stylesheet" href="{% static 'blog/bootstrap/bootstrap.min.css' %}" media="screen">
+    <script src="https://kit.fontawesome.com/cbd71fb62e.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+        <a class="navbar-brand" href="/">Do It Django</a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                <li class="nav-item active"><a class="nav-link" href="/blog/">Blog</a></li>
+                <li class="nav-item"><a class="nav-link" href="/about_me/">About Me</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container my-3">
+    <div class="row">
+        <div class="col-md-8" id="main-area">
+            <h1>{{ post.title }}</h1>
+            <h4>{{ post.created_at }}</h4>
+            
+            <hr>
+            {% if post.head_image %}
+                <img class="img-fluid rounded" src="{{ post.head_image.url }}" alt="{{ post.title }} head_image">
+            {% else %}
+                <img class="img-fluid rounded" src="https://picsum.photos/seed/{{ post.id }}/800/200" alt="random_image">
+            {% endif %}
+            <hr>
+
+            <p>{{ post.content }}</p>
+
+            {% if post.file_upload %}
+                <a href="{{ post.file_upload.url }}" class="btn btn-outline-dark" role="button" download>
+                    Download: 
+                    {% if post.get_file_ext == 'csv' %}
+                        <i class="fas fa-file-csv"></i>
+                    {% elif post.get_file_ext == 'xlsx' or post.get_file_ext == 'xls' %}
+                        <i class="fas fa-file-excel"></i>
+                    {% elif post.get_file_ext == 'docx' or post.get_file_ext == 'doc' %}
+                        <i class="fas fa-file-word"></i>
+                    {% else %}
+                        <i class="far fa-file"></i>
+                    {% endif %}
+                    {{ post.get_file_name }}
+                </a>
+            {% endif %}
+            
+        </div>
+    </div>
+</div>
+
+<hr>
+<footer class="py-5 bg-dark">
+    <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Do It Django 2026</p></div>
+</footer>
+</body>
+</html>
